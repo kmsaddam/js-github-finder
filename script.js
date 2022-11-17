@@ -9,14 +9,17 @@ searchBtn.addEventListener("click", (e) => {
       .then((result) => result.json())
       .then((data) => {
         if (data.message == "Not Found") {
-          console.log("not");
+          ui.clearProfile();
+          ui.showMessage("User not found", "alert alert-danger");
+          ui.removeMessage();
         } else {
-          console.log(data);
           ui.showProfile(data);
-          //   console.log(data);
+          ui.removeMessage();
         }
       })
-      .catch((e) => e.message);
+      .catch((e) => {
+        ui.showMessage(e.message, "alert alert-danger");
+      });
   } else {
     alert(`Enter your user name`);
   }

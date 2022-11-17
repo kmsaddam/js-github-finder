@@ -29,4 +29,24 @@ class UI {
     </div>
 </div>`;
   }
+
+  clearProfile() {
+    this.profile.innerHTML = ``;
+  }
+
+  showMessage(message, className) {
+    let div = document.createElement("div");
+    div.className = className;
+    div.appendChild(document.createTextNode(`${message}`));
+    // this.profile.innerHTML = div;
+
+    let container = document.querySelector("#container");
+    let sBox = document.querySelector("#sBox");
+    container.insertBefore(div, sBox);
+  }
+
+  removeMessage() {
+    let div = document.getElementsByClassName("alert");
+    div.remove;
+  }
 }
